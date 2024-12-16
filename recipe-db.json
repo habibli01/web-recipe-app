@@ -1,0 +1,382 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Classic Chocolate Chip Cookies",
+      "description": "Soft and chewy chocolate chip cookies that are perfect for any occasion.",
+      "ingredients": [
+        "2 1/4 cups all-purpose flour",
+        "1 cup butter, softened",
+        "3/4 cup sugar",
+        "3/4 cup brown sugar",
+        "2 large eggs",
+        "1 tsp vanilla extract",
+        "1 tsp baking soda",
+        "1/2 tsp salt",
+        "2 cups chocolate chips"
+      ],
+      "preparationSteps": [
+        "Preheat oven to 375°F (190°C)",
+        "Cream together butter and sugars until smooth",
+        "Beat in eggs and vanilla",
+        "Mix in flour, baking soda, and salt",
+        "Stir in chocolate chips",
+        "Drop rounded tablespoons onto ungreased baking sheets",
+        "Bake for 10-12 minutes or until golden brown"
+      ],
+      "tags": ["Dessert", "Baking", "Family Favorite"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T10:00:00Z",
+      "updatedAt": "2024-03-15T10:00:00Z",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "title": "Vegetarian Buddha Bowl",
+      "description": "A nutritious and colorful bowl packed with vegetables, grains, and protein.",
+      "ingredients": [
+        "1 cup quinoa",
+        "1 sweet potato, cubed",
+        "1 cup chickpeas",
+        "2 cups kale",
+        "1 avocado",
+        "1 tbsp olive oil",
+        "Tahini dressing"
+      ],
+      "preparationSteps": [
+        "Cook quinoa according to package instructions",
+        "Roast sweet potato and chickpeas with olive oil",
+        "Massage kale with olive oil",
+        "Arrange all ingredients in a bowl",
+        "Top with sliced avocado and tahini dressing"
+      ],
+      "tags": ["Vegetarian", "Healthy", "Lunch", "Dinner"],
+      "difficultyLevel": "Medium",
+      "createdAt": "2024-03-15T11:00:00Z",
+      "updatedAt": "2024-03-15T11:00:00Z",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "title": "Spaghetti Carbonara",
+      "description": "Classic Italian pasta dish with creamy egg sauce and crispy pancetta.",
+      "ingredients": [
+        "1 lb spaghetti",
+        "4 oz pancetta",
+        "4 large eggs",
+        "1 cup Pecorino Romano",
+        "1 cup Parmigiano-Reggiano",
+        "Black pepper",
+        "Salt"
+      ],
+      "preparationSteps": [
+        "Cook pasta in salted water",
+        "Crisp pancetta in a pan",
+        "Mix eggs and cheese",
+        "Combine hot pasta with egg mixture",
+        "Add pancetta and pepper"
+      ],
+      "tags": ["Italian", "Pasta", "Dinner"],
+      "difficultyLevel": "Medium",
+      "createdAt": "2024-03-15T12:00:00Z",
+      "updatedAt": "2024-03-15T12:00:00Z",
+      "order": 3
+    },
+    {
+      "id": 4,
+      "title": "Thai Green Curry",
+      "description": "Aromatic and spicy Thai curry with coconut milk and vegetables.",
+      "ingredients": [
+        "Green curry paste",
+        "Coconut milk",
+        "Chicken or tofu",
+        "Thai eggplants",
+        "Bamboo shoots",
+        "Thai basil",
+        "Fish sauce"
+      ],
+      "preparationSteps": [
+        "Heat curry paste in oil",
+        "Add coconut milk",
+        "Add protein and vegetables",
+        "Simmer until cooked",
+        "Season with fish sauce",
+        "Garnish with Thai basil"
+      ],
+      "tags": ["Thai", "Curry", "Spicy", "Dinner"],
+      "difficultyLevel": "Medium",
+      "createdAt": "2024-03-15T13:00:00Z",
+      "updatedAt": "2024-03-15T13:00:00Z",
+      "order": 4
+    },
+    {
+      "id": 5,
+      "title": "Japanese Ramen",
+      "description": "Authentic Japanese ramen with rich broth, tender chashu pork, and fresh noodles.",
+      "ingredients": [
+        "Ramen noodles",
+        "Pork belly",
+        "Soy sauce",
+        "Mirin",
+        "Soft-boiled eggs",
+        "Green onions",
+        "Nori sheets",
+        "Bamboo shoots"
+      ],
+      "preparationSteps": [
+        "Prepare chashu pork (marinate and cook)",
+        "Make ramen broth",
+        "Cook noodles",
+        "Prepare toppings",
+        "Assemble bowl with broth, noodles, and toppings"
+      ],
+      "tags": ["Japanese", "Soup", "Dinner", "Comfort Food"],
+      "difficultyLevel": "Hard",
+      "createdAt": "2024-03-15T14:00:00Z",
+      "updatedAt": "2024-03-15T14:00:00Z",
+      "order": 5
+    },
+    {
+      "id": 6,
+      "title": "Greek Salad",
+      "description": "Fresh and crisp traditional Greek salad with feta cheese and olives.",
+      "ingredients": [
+        "Cucumber",
+        "Tomatoes",
+        "Red onion",
+        "Feta cheese",
+        "Kalamata olives",
+        "Extra virgin olive oil",
+        "Dried oregano"
+      ],
+      "preparationSteps": [
+        "Chop vegetables",
+        "Combine in bowl",
+        "Add feta and olives",
+        "Drizzle with olive oil",
+        "Season with oregano and salt"
+      ],
+      "tags": ["Greek", "Salad", "Vegetarian", "Healthy", "Quick"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T15:00:00Z",
+      "updatedAt": "2024-03-15T15:00:00Z",
+      "order": 6
+    },
+    {
+      "id": 7,
+      "title": "Beef Tacos",
+      "description": "Authentic Mexican-style tacos with seasoned ground beef and fresh toppings.",
+      "ingredients": [
+        "Ground beef",
+        "Corn tortillas",
+        "Onion",
+        "Cilantro",
+        "Lime",
+        "Taco seasoning",
+        "Salsa"
+      ],
+      "preparationSteps": [
+        "Cook ground beef with seasonings",
+        "Warm tortillas",
+        "Chop toppings",
+        "Assemble tacos",
+        "Serve with lime wedges"
+      ],
+      "tags": ["Mexican", "Dinner", "Quick"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T16:00:00Z",
+      "updatedAt": "2024-03-15T16:00:00Z",
+      "order": 7
+    },
+    {
+      "id": 8,
+      "title": "Butter Chicken",
+      "description": "Creamy Indian curry with tender chicken in a rich tomato-based sauce.",
+      "ingredients": [
+        "Chicken thighs",
+        "Yogurt",
+        "Tomato sauce",
+        "Heavy cream",
+        "Butter",
+        "Garam masala",
+        "Fenugreek leaves"
+      ],
+      "preparationSteps": [
+        "Marinate chicken in yogurt and spices",
+        "Cook chicken until tender",
+        "Prepare sauce",
+        "Combine chicken and sauce",
+        "Finish with cream and butter"
+      ],
+      "tags": ["Indian", "Curry", "Dinner"],
+      "difficultyLevel": "Medium",
+      "createdAt": "2024-03-15T17:00:00Z",
+      "updatedAt": "2024-03-15T17:00:00Z",
+      "order": 8
+    },
+    {
+      "id": 9,
+      "title": "Overnight Oats",
+      "description": "Healthy and convenient breakfast prepared the night before.",
+      "ingredients": [
+        "Rolled oats",
+        "Milk",
+        "Chia seeds",
+        "Honey",
+        "Berries",
+        "Nuts",
+        "Yogurt"
+      ],
+      "preparationSteps": [
+        "Combine oats and milk",
+        "Add chia seeds and honey",
+        "Refrigerate overnight",
+        "Top with fruits and nuts"
+      ],
+      "tags": ["Breakfast", "Healthy", "Meal Prep", "Vegetarian"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T18:00:00Z",
+      "updatedAt": "2024-03-15T18:00:00Z",
+      "order": 9
+    },
+    {
+      "id": 10,
+      "title": "Chicken Stir Fry",
+      "description": "Quick and healthy stir-fried chicken with colorful vegetables.",
+      "ingredients": [
+        "Chicken breast",
+        "Mixed vegetables",
+        "Soy sauce",
+        "Garlic",
+        "Ginger",
+        "Sesame oil",
+        "Cornstarch"
+      ],
+      "preparationSteps": [
+        "Cut chicken and vegetables",
+        "Make sauce",
+        "Stir fry chicken",
+        "Add vegetables",
+        "Combine with sauce"
+      ],
+      "tags": ["Asian", "Quick", "Healthy", "Dinner"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T19:00:00Z",
+      "updatedAt": "2024-03-15T19:00:00Z",
+      "order": 10
+    },
+    {
+      "id": 11,
+      "title": "Banana Bread",
+      "description": "Moist and delicious banana bread with walnuts.",
+      "ingredients": [
+        "Ripe bananas",
+        "Flour",
+        "Sugar",
+        "Eggs",
+        "Butter",
+        "Walnuts",
+        "Vanilla extract"
+      ],
+      "preparationSteps": [
+        "Mash bananas",
+        "Mix wet ingredients",
+        "Combine with dry ingredients",
+        "Add nuts",
+        "Bake until golden"
+      ],
+      "tags": ["Baking", "Breakfast", "Snack", "Dessert"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T20:00:00Z",
+      "updatedAt": "2024-03-15T20:00:00Z",
+      "order": 11
+    },
+    {
+      "id": 12,
+      "title": "Quinoa Power Bowl",
+      "description": "Nutrient-rich bowl with quinoa, roasted vegetables, and tahini dressing.",
+      "ingredients": [
+        "Quinoa",
+        "Sweet potato",
+        "Kale",
+        "Chickpeas",
+        "Avocado",
+        "Tahini",
+        "Lemon"
+      ],
+      "preparationSteps": [
+        "Cook quinoa",
+        "Roast vegetables",
+        "Prepare dressing",
+        "Assemble bowl",
+        "Drizzle with dressing"
+      ],
+      "tags": ["Vegan", "Healthy", "Lunch", "Meal Prep"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T21:00:00Z",
+      "updatedAt": "2024-03-15T21:00:00Z",
+      "order": 12
+    },
+    {
+      "id": 13,
+      "title": "Beef Bourguignon",
+      "description": "Classic French beef stew braised in red wine.",
+      "ingredients": [
+        "Beef chuck",
+        "Red wine",
+        "Bacon",
+        "Pearl onions",
+        "Mushrooms",
+        "Carrots",
+        "Beef stock"
+      ],
+      "preparationSteps": [
+        "Brown beef",
+        "Cook bacon and vegetables",
+        "Add wine and stock",
+        "Simmer until tender",
+        "Serve with mashed potatoes"
+      ],
+      "tags": ["French", "Dinner", "Comfort Food"],
+      "difficultyLevel": "Hard",
+      "createdAt": "2024-03-15T22:00:00Z",
+      "updatedAt": "2024-03-15T22:00:00Z",
+      "order": 13
+    },
+    {
+      "id": 14,
+      "title": "Caprese Salad",
+      "description": "Simple Italian salad with fresh mozzarella, tomatoes, and basil.",
+      "ingredients": [
+        "Fresh mozzarella",
+        "Tomatoes",
+        "Fresh basil",
+        "Olive oil",
+        "Balsamic vinegar",
+        "Salt",
+        "Black pepper"
+      ],
+      "preparationSteps": [
+        "Slice mozzarella and tomatoes",
+        "Arrange on plate",
+        "Add basil leaves",
+        "Drizzle with oil and vinegar",
+        "Season to taste"
+      ],
+      "tags": ["Italian", "Salad", "Quick", "Vegetarian"],
+      "difficultyLevel": "Easy",
+      "createdAt": "2024-03-15T23:00:00Z",
+      "updatedAt": "2024-03-15T23:00:00Z",
+      "order": 14
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "subject": "Recipe Suggestion",
+      "email": "user@example.com",
+      "content": "I would love to see more vegetarian recipes!",
+      "timestamp": "2024-03-15T12:00:00Z"
+    }
+  ]
+}
