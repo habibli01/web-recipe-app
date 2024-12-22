@@ -37,7 +37,7 @@ const Recipes = () => {
     return queryParams;
   }, [debouncedSearchTerm, difficulty, selectedTags, sortBy, sortOrder]);
 
-  const { data: recipes, loading, error } = useFetch('/recipes', params);
+  const { data: recipes, loading, error, refetch } = useFetch('/recipes', params);
 
   const allTags = useMemo(() => {
     if (!recipes) return [];
@@ -87,7 +87,12 @@ const Recipes = () => {
         </div>
 
         <div className="lg:col-span-3">
-          <RecipeGrid recipes={recipes} loading={loading} error={error} />
+          <RecipeGrid 
+            recipes={recipes} 
+            loading={loading} 
+            error={error}
+            onRecipeUpdate={refetch}
+          />
         </div>
       </div>
     </div>

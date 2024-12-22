@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
 
-const RecipeGrid = ({ recipes, loading, error }) => {
+const RecipeGrid = ({ recipes, loading, error, onRecipeUpdate }) => {
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -41,7 +41,11 @@ const RecipeGrid = ({ recipes, loading, error }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {recipes.map(recipe => (
-        <RecipeCard key={recipe.id} recipe={recipe} />
+        <RecipeCard 
+          key={recipe.id} 
+          recipe={recipe} 
+          onRecipeUpdate={onRecipeUpdate}
+        />
       ))}
     </div>
   );
