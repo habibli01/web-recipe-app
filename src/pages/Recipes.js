@@ -6,6 +6,11 @@ import DifficultyFilter from '../components/Recipes/DifficultyFilter';
 import SortOptions from '../components/Recipes/SortOptions';
 import TagsFilter from '../components/Recipes/TagsFilter';
 import RecipeGrid from '../components/Recipes/RecipeGrid';
+import ShareModal from '../components/Recipes/ShareModal';
+import Pagination from '../components/Recipes/Pagination';
+import { IoShareSocial } from 'react-icons/io5';
+
+const ITEMS_PER_PAGE = 4;
 
 const Recipes = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,11 +18,19 @@ const Recipes = () => {
   const [difficulty, setDifficulty] = useState('');
   const [sortBy, setSortBy] = useState('updatedAt');
   const [sortOrder, setSortOrder] = useState('desc');
+  const [selectedRecipes, setSelectedRecipes] = useState([]);
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
   const params = useMemo(() => {
-    const queryParams = {};
+    const queryParams = {
+      _page: currentPage,
+      _limit: ITEMS_PER_PAGE,
+      _sort: 'order,updatedAt',
+      _order: 'asc,desc'
+    };
 
     if (debouncedSearchTerm) {
       queryParams.q = debouncedSearchTerm;
@@ -31,13 +44,16 @@ const Recipes = () => {
       queryParams.tags_like = selectedTags.join('|');
     }
 
-    queryParams._sort = sortBy;
-    queryParams._order = sortOrder;
-
     return queryParams;
-  }, [debouncedSearchTerm, difficulty, selectedTags, sortBy, sortOrder]);
+  }, [debouncedSearchTerm, difficulty, selectedTags, currentPage]);
 
-  const { data: recipes, loading, error, refetch } = useFetch('/recipes', params);
+  const { 
+    data: recipes, 
+    loading, 
+    error, 
+    metadata, 
+    refetch 
+  } = useFetch('/recipes', params);
 
   const allTags = useMemo(() => {
     if (!recipes) return [];
@@ -54,10 +70,28 @@ const Recipes = () => {
     setDifficulty('');
     setSortBy('updatedAt');
     setSortOrder('desc');
+    setCurrentPage(1);
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleRecipeSelect = (recipeId) => {
+    setSelectedRecipes(prev => 
+      prev.includes(recipeId)
+        ? prev.filter(id => id !== recipeId)
+        : [...prev, recipeId]
+    );
+  };
+
+  const selectedRecipeData = recipes?.filter(recipe => 
+    selectedRecipes.includes(recipe.id)
+  ) || [];
+
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-6 relative">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-lg p-6 sticky top-6">
@@ -92,9 +126,40 @@ const Recipes = () => {
             loading={loading} 
             error={error}
             onRecipeUpdate={refetch}
+            selectedRecipes={selectedRecipes}
+            onRecipeSelect={handleRecipeSelect}
           />
+
+          {!loading && !error && recipes?.length > 0 && (
+            <Pagination
+              currentPage={metadata.currentPage}
+              totalPages={metadata.totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
         </div>
       </div>
+
+      {/* Floating Share Button */}
+      {selectedRecipes.length > 0 && (
+        <div className="fixed bottom-6 right-6 z-10">
+          <button
+            onClick={() => setShowShareModal(true)}
+            className="bg-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-indigo-700 flex items-center gap-2"
+          >
+            <IoShareSocial size={20} />
+            Share ({selectedRecipes.length})
+          </button>
+        </div>
+      )}
+
+      {/* Share Modal */}
+      {showShareModal && (
+        <ShareModal
+          recipes={selectedRecipeData}
+          onClose={() => setShowShareModal(false)}
+        />
+      )}
     </div>
   );
 };

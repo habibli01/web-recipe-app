@@ -1,7 +1,53 @@
 import React from 'react';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import RecipeCard from './RecipeCard';
+import axios from 'axios';
 
-const RecipeGrid = ({ recipes, loading, error, onRecipeUpdate }) => {
+const RecipeGrid = ({ 
+  recipes, 
+  loading, 
+  error, 
+  onRecipeUpdate,
+  selectedRecipes,
+  onRecipeSelect
+}) => {
+  const handleDragEnd = async (result) => {
+    if (!result.destination) return;
+
+    const { source, destination } = result;
+    const reorderedRecipes = Array.from(recipes);
+    const [removed] = reorderedRecipes.splice(source.index, 1);
+    reorderedRecipes.splice(destination.index, 0, removed);
+
+    // Calculate new orders based on position
+    const startOrder = Math.min(source.index, destination.index);
+    const endOrder = Math.max(source.index, destination.index);
+    
+    // Only update recipes that were affected by the drag
+    const affectedRecipes = reorderedRecipes
+      .slice(startOrder, endOrder + 1)
+      .map((recipe, index) => ({
+        ...recipe,
+        order: startOrder + index
+      }));
+
+    try {
+      // Update only the affected recipes
+      await Promise.all(
+        affectedRecipes.map(recipe =>
+          axios.put(`http://localhost:3001/recipes/${recipe.id}`, {
+            ...recipe,
+            updatedAt: new Date().toISOString()
+          })
+        )
+      );
+      onRecipeUpdate();
+    } catch (error) {
+      console.error('Error updating recipe order:', error);
+      alert('Failed to update recipe order');
+    }
+  };
+
   if (loading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -39,15 +85,42 @@ const RecipeGrid = ({ recipes, loading, error, onRecipeUpdate }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {recipes.map(recipe => (
-        <RecipeCard 
-          key={recipe.id} 
-          recipe={recipe} 
-          onRecipeUpdate={onRecipeUpdate}
-        />
-      ))}
-    </div>
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="recipes" direction="vertical">
+        {(provided) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {recipes.map((recipe, index) => (
+              <Draggable 
+                key={recipe.id} 
+                draggableId={recipe.id.toString()} 
+                index={index}
+              >
+                {(provided, snapshot) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    className={`${snapshot.isDragging ? 'z-50' : ''}`}
+                  >
+                    <RecipeCard 
+                      recipe={recipe}
+                      onRecipeUpdate={onRecipeUpdate}
+                      selected={selectedRecipes.includes(recipe.id)}
+                      onSelect={onRecipeSelect}
+                    />
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 };
 
